@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figurama | Juego de Tablero y Mitos Clásicos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="#inicio" class="brand">🎲 FIGURAMA</a>
+            <nav class="nav-links">
+                <a href="#jugabilidad">Jugabilidad</a>
+                <a href="#personajes">Mitos & Poderes</a>
+                <a href="#mda">Diseño (MDA)</a>
+                <a href="#proceso">Proceso & Tech</a>
+                <a href="https://github.com/daianaddiaz/figurama" target="_blank" class="btn-nav">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <span class="badge">Godot 4 • C# • Multijugador Local & Red</span>
+                <h1>Astucia geométrica y mitos argentinos en el tablero</h1>
+                <p>
+                    Forma patrones exactos de 4 y 5 fichas en una grilla táctica de 36 piezas. 
+                    Administra tus cartas de movimiento, desata poderes legendarios y completa tus 
+                    figuras antes que tus rivales.
+                </p>
+                <div class="hero-actions">
+                    <a href="#jugabilidad" class="btn-primary">Explorar Jugabilidad</a>
+                    <a href="https://github.com/daianaddiaz/figurama" target="_blank" class="btn-secondary">Ver Repositorio</a>
+                </div>
+                <div class="fichas-decor">
+                    <span class="ficha rojo" title="Ficha Roja"></span>
+                    <span class="ficha azul" title="Ficha Azul"></span>
+                    <span class="ficha amarillo" title="Ficha Amarilla"></span>
+                    <span class="ficha verde" title="Ficha Verde"></span>
+                </div>
+            </div>
+            <div class="hero-media">
+                <!-- Reemplazá el src con una captura o GIF real de Figurama -->
+                <div class="media-frame">
+                    <img src="assets/gameplay-preview.png" alt="Captura del tablero de Figurama" onerror="this.src='https://placehold.co/640x400/181824/e2e8f0?text=Captura+de+Tablero+Figurama'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JUGABILIDAD Y TURNO PASO A PASO -->
+    <section id="jugabilidad" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>🎮 Jugabilidad y Reglas</h2>
+                <p>De 1 a 4 jugadores en partidas dinámicas contra reloj donde cada movimiento cuenta.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="card step-card">
+                    <span class="step-num">01</span>
+                    <h3>Robo y Planificación</h3>
+                    <p>Recibes cartas de movimiento (según la dificultad: Fácil, Mediano o Difícil) y cartas de figuras objetivo de 4 o 5 fichas.</p>
+                </div>
+                <div class="card step-card">
+                    <span class="step-num">02</span>
+                    <h3>Movimientos Tácticos</h3>
+                    <p>Selecciona una carta de movimiento e intercambia fichas en la grilla. Puedes hacer <strong>Reroll</strong> al inicio de tu turno a cambio de ceder la ronda.</p>
+                </div>
+                <div class="card step-card">
+                    <span class="step-num">03</span>
+                    <h3>Restricción de Color</h3>
+                    <p>Al formar una figura sin fichas sobrantes adyacentes, se bloquea ese color para tu siguiente figura. ¡Úsalo para frenar a tus rivales!</p>
+                </div>
+                <div class="card step-card">
+                    <span class="step-num">04</span>
+                    <h3>Victoria</h3>
+                    <p>Gestiona el temporizador por turno y sé el primer jugador en completar todas sus figuras asignadas para ganar la partida.</p>
+                </div>
+            </div>
+
+            <!-- HUD / FORMAS -->
+            <div class="hud-showcase">
+                <div class="hud-info">
+                    <h3>🧩 Cartas, Rotaciones e Interfaz (HUD)</h3>
+                    <ul>
+                        <li><strong>Figuras de 4 y 5 fichas:</strong> L4, Línea 4, Cruz, L5 (quirales) y Zig-Zag con soporte de rotación y espejo.</li>
+                        <li><strong>Feedback visual inmediato:</strong> Las figuras completadas se resaltan en verde y actualizan el marcador en tiempo real.</li>
+                        <li><strong>Ambientación dinámica:</strong> El fondo 3D del tablero, la insignia y la mano de cartas cambian según el jugador activo.</li>
+                    </ul>
+                </div>
+                <div class="hud-visual">
+                    <div class="media-frame">
+                        <img src="assets/hud-preview.png" alt="Interfaz HUD de Figurama" onerror="this.src='https://placehold.co/550x320/1e1e2e/94a3b8?text=Vista+de+Cartas+y+HUD'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERSONAJES Y POWER-UPS -->
+    <section id="personajes" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>🐺 Leyendas y Habilidades Únicas</h2>
+                <p>Cada jugador elige un mito clásico con un poder activo que tarda 2 rondas en recargarse.</p>
+            </div>
+
+            <div class="chars-grid">
+                <div class="card char-card">
+                    <div class="char-icon">🌕</div>
+                    <h3>Lobizón</h3>
+                    <span class="tag">Comodín</span>
+                    <p>Transforma una ficha del tablero en un comodín que funciona como cualquier color durante todo su turno.</p>
+                </div>
+                <div class="card char-card">
+                    <div class="char-icon">👻</div>
+                    <h3>Luz Mala</h3>
+                    <span class="tag">Sabotaje</span>
+                    <p>Elige a un jugador rival para que en su próximo turno reciba una carta de movimiento menos.</p>
+                </div>
+                <div class="card char-card">
+                    <div class="char-icon">👒</div>
+                    <h3>El Pomberito</h3>
+                    <span class="tag">Recurso Extra</span>
+                    <p>Otorga una carta de movimiento adicional en el turno actual para encadenar jugadas complejas.</p>
+                </div>
+                <div class="card char-card">
+                    <div class="char-icon">🔥</div>
+                    <h3>Mulánima</h3>
+                    <span class="tag">Bloqueo</span>
+                    <p>Prende fuego una ficha del tablero, impidiendo que sea movida hasta que vuelva a ser el turno de Mulánima.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISEÑO DE JUEGO (MDA) -->
+    <section id="mda" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>🎯 Diseño de Juego (Framework MDA)</h2>
+                <p>Cómo las reglas se transforman en decisiones estratégicas y experiencia de juego.</p>
+            </div>
+
+            <div class="mda-tabs">
+                <button class="tab-btn active" data-tab="mecanicas">⚙️ Mecánicas</button>
+                <button class="tab-btn" data-tab="dinamicas">🔀 Dinámicas</button>
+                <button class="tab-btn" data-tab="esteticas">✨ Estéticas</button>
+            </div>
+
+            <div class="mda-content card">
+                <div id="mecanicas" class="tab-panel active">
+                    <ul class="clean-list">
+                        <li>Selector de dificultad (Fácil, Mediano, Difícil), cantidad de jugadores (1 a 4), nombres y personajes.</li>
+                        <li>Grilla de 36 fichas repartidas equitativamente en 4 colores (rojo, azul, amarillo y verde).</li>
+                        <li>Cartas de movimiento que delimitan intercambios válidos y botón de cierre de turno tras el primer movimiento.</li>
+                        <li>Botón de <strong>Reroll</strong> disponible solo antes de mover, renovando la mano para la siguiente ronda.</li>
+                        <li>Validación automática de figuras sin fichas sobrantes del mismo color y bloqueo del último color completado.</li>
+                    </ul>
+                </div>
+                <div id="dinamicas" class="tab-panel">
+                    <ul class="clean-list">
+                        <li><strong>Gestión de riesgo:</strong> Evaluar si conviene sacrificar un turno con Reroll para obtener mejores cartas.</li>
+                        <li><strong>Cierre táctico:</strong> Terminar el turno antes de gastar todas las cartas para no acomodar fichas a favor del rival.</li>
+                        <li><strong>Control de color:</strong> Planificar el orden de figuras según el último color usado propio y ajeno.</li>
+                        <li><strong>Lectura de turnos:</strong> Calcular cuántas rondas faltan para que recarguen los power-ups en mesa.</li>
+                    </ul>
+                </div>
+                <div id="esteticas" class="tab-panel">
+                    <ul class="clean-list">
+                        <li>Estrategia y toma de decisiones con recursos limitados.</li>
+                        <li>Predicción y apuesta por recompensas futuras.</li>
+                        <li>Improvisación y pensamiento rápido bajo presión del reloj.</li>
+                        <li>Expresión de estilo de juego y personalización mediante elección de personaje.</li>
+                        <li>Competencia mental directa contra otros jugadores.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESO DE DESARROLLO Y ARQUITECTURA TÉCNICA -->
+    <section id="proceso" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>🛠️ Proceso de Desarrollo y Arquitectura</h2>
+                <p>De un prototipo local en Godot 4 + C# a partidas multijugador en red local con servidor autoritativo.</p>
+            </div>
+
+            <!-- TIMELINE DEL PROCESO -->
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card">
+                        <span class="phase">Etapa 1 • Arquitectura Core</span>
+                        <h3>Patrón Command en las Cartas de Movimiento</h3>
+                        <p>
+                            Cada carta (<code>CartaMovimiento</code>) encapsula su propia validación (<code>EsValido</code>) 
+                            y ejecución (<code>Ejecutar</code>) sobre <code>TableroReglas</code>. Esto desacopló la UI 3D de 
+                            las reglas y permitió escalar nuevas cartas sin modificar el motor principal.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card">
+                        <span class="phase">Etapa 2 • Pulido Visual y UX</span>
+                        <h3>Tablero 3D, Cinemáticas y Transiciones</h3>
+                        <p>
+                            Implementación de fondos dinámicos en <code>Sprite3D</code> por jugador, cinemáticas para habilidades 
+                            especiales, tutorial interactivo por slides y transiciones animadas entre turnos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card">
+                        <span class="phase">Etapa 3 • Adaptación Multijugador en Red</span>
+                        <h3>Servidor Autoritativo con ENet y Descubrimiento UDP</h3>
+                        <p>
+                            Separación entre lógica autoritativa en el host (<code>TableroMP</code> / <code>ControllerRed</code>) y 
+                            vistas cliente/espectador (<code>JugadorMP</code> / <code>EspectadorMP</code>), sincronizando snapshots 
+                            en JSON por RPC, descubrimiento de salas por broadcast UDP y reconexión con token SHA-256 de 60 segundos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESUMEN TÉCNICO DE RED -->
+            <div class="tech-grid">
+                <div class="card tech-box">
+                    <h4>🌐 Transporte & RPC</h4>
+                    <p><code>ENetMultiplayerPeer</code> en puertos UDP 7777–7786. Los clientes envían solicitudes con <code>RpcId(1)</code> y el host difunde snapshots y eventos.</p>
+                </div>
+                <div class="card tech-box">
+                    <h4>📡 Salas & Reconexión</h4>
+                    <p>Anuncios UDP en puertos 7800–7809. Soporta hasta 4 jugadores + 2 espectadores, con ventana de 60s para reconectar mediante token en memoria.</p>
+                </div>
+                <div class="card tech-box">
+                    <h4>🔒 Seguridad & Reglas</h4>
+                    <p>El servidor valida turnos, movimientos y habilidades; los clientes actúan como réplica visual y solo resaltan jugadas válidas localmente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUIPO Y FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <h3>🎲 Figurama</h3>
+                <p>Desarrollado por <strong>Kevin Alemanno</strong>, <strong>Alejandro Decurgez</strong> y <strong>Daiana Diaz</strong>.</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/daianaddiaz/figurama" target="_blank">Repositorio en GitHub</a>
+                <a href="#inicio">Volver arriba ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
