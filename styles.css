@@ -1,3 +1,31 @@
+/* Tipografías locales desde assets/ */
+@font-face {
+    font-family: 'DesignerLocal';
+    src: url('assets/Designer.otf') format('opentype'),
+         url('assets/Designer.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TTChocolatesLocal';
+    src: url('assets/TT Chocolates Trial Bold.otf') format('opentype'),
+         url('assets/TT Chocolates Trial Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TTChocolatesLocal';
+    src: url('assets/TT Chocolates Trial Medium.otf') format('opentype'),
+         url('assets/TT Chocolates Trial Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     /* Paleta extraída del degradado de FondoJugador3.jpg */
     --verde-claro: #79d45e;
@@ -32,7 +60,8 @@ html {
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'TTChocolatesLocal', sans-serif;
+    font-weight: 500;
     color: var(--text-main);
     line-height: 1.6;
     min-height: 100vh;
@@ -51,9 +80,26 @@ body {
 }
 
 h1, h2, h3, .brand {
-    font-family: 'Cinzel', serif;
-    letter-spacing: 0.5px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    font-family: 'DesignerLocal', sans-serif;
+    letter-spacing: 0.8px;
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+}
+
+.navbar,
+.nav-links a,
+.btn-nav,
+.btn-primary,
+.btn-secondary,
+.badge,
+.tag,
+.step-num,
+.phase,
+.tab-btn,
+strong,
+b {
+    font-family: 'TTChocolatesLocal', sans-serif;
+    font-weight: 700;
 }
 
 .container {
@@ -326,9 +372,24 @@ h1, h2, h3, .brand {
     text-align: center;
 }
 
-.char-icon {
-    font-size: 2.4rem;
-    margin-bottom: 12px;
+.char-media {
+    width: 100%;
+    max-width: 170px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.char-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.25s ease;
+}
+
+.char-card:hover .char-media img {
+    transform: scale(1.05);
 }
 
 .tag {
@@ -347,6 +408,58 @@ h1, h2, h3, .brand {
     font-size: 0.94rem;
 }
 
+/* LOGO SUPERIOR RESPONSIVO*/
+.top-logo-banner {
+    padding: 32px 0 12px;
+    background: transparent;
+}
+
+.top-logo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-logo-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+}
+
+.top-logo-link:hover {
+    transform: scale(1.03);
+}
+
+.top-logo-img {
+    width: auto;
+    max-width: min(720px, 90vw);
+    max-height: 240px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 10px 22px rgba(10, 14, 36, 0.38));
+}
+
+/* Ajustes en celulares */
+@media (max-width: 768px) {
+    .top-logo-banner {
+        padding: 24px 0 8px;
+    }
+
+    .top-logo-img {
+        max-width: min(540px, 88vw);
+        max-height: 176px;
+    }
+}
+
+@media (max-width: 400px) {
+    .top-logo-img {
+        max-width: min(440px, 90vw);
+        max-height: 148px;
+    }
+}
 /* MDA TABS */
 .mda-tabs {
     display: flex;
@@ -497,14 +610,248 @@ code {
 }
 
 /* RESPONSIVE */
-@media (max-width: 820px) {
-    .hero-grid, .hud-showcase {
+/* Evitar scroll horizontal accidental en móviles */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Botón hamburguesa oculto en escritorio */
+.menu-toggle {
+    display: none;
+    background: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tablets y pantallas medianas */
+@media (max-width: 900px) {
+    .hero-grid,
+    .hud-showcase {
         grid-template-columns: 1fr;
+        gap: 32px;
     }
+
+    .hero {
+        padding: 56px 0 68px;
+    }
+
     .hero h1 {
-        font-size: 2.1rem;
+        font-size: 2.2rem;
     }
-    .nav-links a:not(.btn-nav) {
+
+    .hud-showcase {
+        padding: 24px;
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+    /* En móviles es mejor scroll en vez de fixed para evitar glitches del degradado */
+    
+    body {
+        background-attachment: scroll;
+    }
+
+    .container {
+        padding: 0 18px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
         display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(14, 19, 48, 0.96);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border);
+        padding: 12px 18px 18px;
     }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 6px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        font-size: 1rem;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .section {
+        padding: 56px 0;
+    }
+
+    .section-header {
+        margin-bottom: 32px;
+    }
+
+    .section-header h2 {
+        font-size: 1.65rem;
+    }
+
+    .hero h1 {
+        font-size: 1.85rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .fichas-decor {
+        justify-content: flex-start;
+        margin-top: 24px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .mda-tabs {
+        gap: 8px;
+    }
+
+    .tab-btn {
+        flex: 1 1 auto;
+        text-align: center;
+        padding: 9px 14px;
+        font-size: 0.9rem;
+    }
+
+    .timeline {
+        padding-left: 22px;
+        gap: 18px;
+    }
+
+    .timeline-dot {
+        left: -29px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+}
+
+/* Pantallas muy angostas */
+@media (max-width: 400px) {
+    .brand {
+        font-size: 1.15rem;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+}
+
+/* GRUPO MARCA + IMAGEN PNG RESPONSIVA */
+.brand-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.brand-icon-img {
+    width: auto;
+    height: auto;
+    max-height: 42px;
+    max-width: 90px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+}
+
+/* Ajuste responsivo en pantallas chicas */
+@media (max-width: 768px) {
+    .brand-group {
+        gap: 8px;
+    }
+
+    .brand-icon-img {
+        max-height: 34px;
+        max-width: 72px;
+    }
+}
+
+@media (max-width: 400px) {
+    .brand-icon-img {
+        max-height: 28px;
+        max-width: 58px;
+    }
+}
+
+/* Separación cuando va al lado de texto */
+a .fa-solid,
+a .fa-regular,
+a .fa-brands,
+button .fa-solid {
+    margin-right: 6px;
+}
+
+/* Ejemplo de tamaño y color personalizado */
+.icono-seccion {
+    font-size: 1.5rem;
+    color: #86efac;
+}
+
+h1 i,
+h2 i,
+h3 i,
+h4 i,
+.fa-solid,
+.fa-regular,
+.fa-brands {
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+.fa-solid {
+    font-weight: 900 !important;
+}
+
+.fa-regular {
+    font-weight: 400 !important;
+}
+
+.fa-brands {
+    font-family: "Font Awesome 6 Brands" !important;
+    font-weight: 400 !important;
 }

@@ -5,24 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Figurama | Juego de Tablero y Mitos Clásicos</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
     <!-- NAVEGACIÓN -->
     <header class="navbar">
         <div class="container nav-content">
-            <a href="#inicio" class="brand">🎲 FIGURAMA</a>
-            <nav class="nav-links">
+            <div class="brand-group">
+                <img src="assets/Moneda.png" alt="Decoración Figurama" class="brand-icon-img" onerror="this.style.display='none'">
+                <a href="#inicio" class="brand">FIGURAMA</a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+                ☰
+            </button>
+
+            <nav class="nav-links" id="navLinks">
                 <a href="#jugabilidad">Jugabilidad</a>
                 <a href="#personajes">Mitos & Poderes</a>
                 <a href="#mda">Diseño (MDA)</a>
                 <a href="#proceso">Proceso & Tech</a>
-                <a href="https://github.com/daianaddiaz/figurama" target="_blank" class="btn-nav">GitHub</a>
+                <a href="https://github.com/daianaddiaz/figurama" target="_blank" rel="noopener noreferrer" class="btn-nav">GitHub</a>
             </nav>
         </div>
     </header>
+
+    <!-- LOGO SUPERIOR -->
+    <div class="top-logo-banner">
+        <div class="container top-logo-wrap">
+            <a href="#inicio" class="top-logo-link" aria-label="Inicio de Figurama">
+                <img src="assets/LogoFiguramaBlanco.png" alt="Logo de Figurama" class="top-logo-img" onerror="this.style.display='none'">
+            </a>
+        </div>
+    </div>
 
     <!-- HERO SECTION -->
     <section id="inicio" class="hero">
@@ -47,9 +63,8 @@
                 </div>
             </div>
             <div class="hero-media">
-                <!-- Reemplazá el src con una captura o GIF real de Figurama -->
                 <div class="media-frame">
-                    <img src="assets/gameplay-preview.png" alt="Captura del tablero de Figurama" onerror="this.src='https://placehold.co/640x400/181824/e2e8f0?text=Captura+de+Tablero+Figurama'">
+                    <img src="assets/JugabilidadGif.gif" alt="Captura del tablero de Figurama" onerror="this.src='https://placehold.co/640x400/181824/e2e8f0?text=Captura+de+Tablero+Figurama'">
                 </div>
             </div>
         </div>
@@ -59,7 +74,7 @@
     <section id="jugabilidad" class="section">
         <div class="container">
             <div class="section-header">
-                <h2>🎮 Jugabilidad y Reglas</h2>
+                <h2>Jugabilidad y Reglas</h2>
                 <p>De 1 a 4 jugadores en partidas dinámicas contra reloj donde cada movimiento cuenta.</p>
             </div>
 
@@ -89,7 +104,7 @@
             <!-- HUD / FORMAS -->
             <div class="hud-showcase">
                 <div class="hud-info">
-                    <h3>🧩 Cartas, Rotaciones e Interfaz (HUD)</h3>
+                    <h3> Cartas, Rotaciones e Interfaz (HUD)</h3>
                     <ul>
                         <li><strong>Figuras de 4 y 5 fichas:</strong> L4, Línea 4, Cruz, L5 (quirales) y Zig-Zag con soporte de rotación y espejo.</li>
                         <li><strong>Feedback visual inmediato:</strong> Las figuras completadas se resaltan en verde y actualizan el marcador en tiempo real.</li>
@@ -98,7 +113,7 @@
                 </div>
                 <div class="hud-visual">
                     <div class="media-frame">
-                        <img src="assets/hud-preview.png" alt="Interfaz HUD de Figurama" onerror="this.src='https://placehold.co/550x320/1e1e2e/94a3b8?text=Vista+de+Cartas+y+HUD'">
+                        <img src="assets/CapturaJuego.png" alt="Interfaz HUD de Figurama" onerror="this.src='https://placehold.co/550x320/1e1e2e/94a3b8?text=Vista+de+Cartas+y+HUD'">
                     </div>
                 </div>
             </div>
@@ -109,35 +124,47 @@
     <section id="personajes" class="section section-alt">
         <div class="container">
             <div class="section-header">
-                <h2>🐺 Leyendas y Habilidades Únicas</h2>
+                <h2>Leyendas y Habilidades Únicas</h2>
                 <p>Cada jugador elige un mito clásico con un poder activo que tarda 2 rondas en recargarse.</p>
             </div>
 
-            <div class="chars-grid">
+           <div class="chars-grid">
                 <div class="card char-card">
-                    <div class="char-icon">🌕</div>
+                    <div class="char-media">
+                        <img src="assets/lobizon.png" alt="Ilustración de Lobizón" onerror="this.src='https://placehold.co/240x240/0f172a/86efac?text=Lobiz%C3%B3n'">
+                    </div>
                     <h3>Lobizón</h3>
                     <span class="tag">Comodín</span>
                     <p>Transforma una ficha del tablero en un comodín que funciona como cualquier color durante todo su turno.</p>
                 </div>
+
                 <div class="card char-card">
-                    <div class="char-icon">👻</div>
+                    <div class="char-media">
+                        <img src="assets/luzmala.png" alt="Ilustración de Luz Mala" onerror="this.src='https://placehold.co/240x240/0f172a/86efac?text=Luz+Mala'">
+                    </div>
                     <h3>Luz Mala</h3>
                     <span class="tag">Sabotaje</span>
                     <p>Elige a un jugador rival para que en su próximo turno reciba una carta de movimiento menos.</p>
                 </div>
+
                 <div class="card char-card">
-                    <div class="char-icon">👒</div>
+                    <div class="char-media">
+                        <img src="assets/pomberito.png" alt="Ilustración de El Pomberito" onerror="this.src='https://placehold.co/240x240/0f172a/86efac?text=Pomberito'">
+                    </div>
                     <h3>El Pomberito</h3>
                     <span class="tag">Recurso Extra</span>
                     <p>Otorga una carta de movimiento adicional en el turno actual para encadenar jugadas complejas.</p>
                 </div>
+
                 <div class="card char-card">
-                    <div class="char-icon">🔥</div>
+                    <div class="char-media">
+                        <img src="assets/mulanima.png" alt="Ilustración de Mulánima" onerror="this.src='https://placehold.co/240x240/0f172a/86efac?text=Mul%C3%A1nima'">
+                    </div>
                     <h3>Mulánima</h3>
                     <span class="tag">Bloqueo</span>
                     <p>Prende fuego una ficha del tablero, impidiendo que sea movida hasta que vuelva a ser el turno de Mulánima.</p>
                 </div>
+            </div>
             </div>
         </div>
     </section>
@@ -146,14 +173,14 @@
     <section id="mda" class="section">
         <div class="container">
             <div class="section-header">
-                <h2>🎯 Diseño de Juego (Framework MDA)</h2>
+                <h2> Diseño de Juego <br> Framework - MDA</h2>
                 <p>Cómo las reglas se transforman en decisiones estratégicas y experiencia de juego.</p>
             </div>
 
             <div class="mda-tabs">
-                <button class="tab-btn active" data-tab="mecanicas">⚙️ Mecánicas</button>
-                <button class="tab-btn" data-tab="dinamicas">🔀 Dinámicas</button>
-                <button class="tab-btn" data-tab="esteticas">✨ Estéticas</button>
+                <button class="tab-btn active" data-tab="mecanicas"> Mecánicas</button>
+                <button class="tab-btn" data-tab="dinamicas"> Dinámicas</button>
+                <button class="tab-btn" data-tab="esteticas"> Estéticas</button>
             </div>
 
             <div class="mda-content card">
@@ -191,7 +218,7 @@
     <section id="proceso" class="section section-alt">
         <div class="container">
             <div class="section-header">
-                <h2>🛠️ Proceso de Desarrollo y Arquitectura</h2>
+                <h2>Proceso de Desarrollo y Arquitectura</h2>
                 <p>De un prototipo local en Godot 4 + C# a partidas multijugador en red local con servidor autoritativo.</p>
             </div>
 
@@ -239,15 +266,15 @@
             <!-- RESUMEN TÉCNICO DE RED -->
             <div class="tech-grid">
                 <div class="card tech-box">
-                    <h4>🌐 Transporte & RPC</h4>
+                    <h4> Transporte & RPC</h4>
                     <p><code>ENetMultiplayerPeer</code> en puertos UDP 7777–7786. Los clientes envían solicitudes con <code>RpcId(1)</code> y el host difunde snapshots y eventos.</p>
                 </div>
                 <div class="card tech-box">
-                    <h4>📡 Salas & Reconexión</h4>
+                    <h4> Salas & Reconexión</h4>
                     <p>Anuncios UDP en puertos 7800–7809. Soporta hasta 4 jugadores + 2 espectadores, con ventana de 60s para reconectar mediante token en memoria.</p>
                 </div>
                 <div class="card tech-box">
-                    <h4>🔒 Seguridad & Reglas</h4>
+                    <h4> Seguridad & Reglas</h4>
                     <p>El servidor valida turnos, movimientos y habilidades; los clientes actúan como réplica visual y solo resaltan jugadas válidas localmente.</p>
                 </div>
             </div>
@@ -258,7 +285,7 @@
     <footer class="footer">
         <div class="container footer-content">
             <div>
-                <h3>🎲 Figurama</h3>
+                <h3> Figurama</h3>
                 <p>Desarrollado por <strong>Kevin Alemanno</strong>, <strong>Alejandro Decurgez</strong> y <strong>Daiana Diaz</strong>.</p>
             </div>
             <div class="footer-links">
