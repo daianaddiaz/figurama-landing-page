@@ -34,10 +34,10 @@
     --azul-profundo: #0e1330;
 
     /* Superficies y textos adaptados al degradado */
-    --bg-card: rgba(12, 18, 42, 0.62);
-    --bg-card-hover: rgba(15, 23, 54, 0.78);
+    --bg-card: rgba(12, 18, 42, 0.68);
+    --bg-card-hover: rgba(15, 23, 54, 0.84);
     --text-main: #f8fafc;
-    --text-muted: rgba(248, 250, 252, 0.84);
+    --text-muted: rgba(248, 250, 252, 0.86);
     --accent: #22c55e;
     --accent-hover: #16a34a;
     --border: rgba(255, 255, 255, 0.16);
@@ -57,14 +57,18 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 body {
-    font-family: 'TTChocolatesLocal', sans-serif;
+    font-family: 'TTChocolatesLocal', sans-serif !important;
     font-weight: 500;
-    color: var(--text-main);
+    color: var(--text-main) !important;
     line-height: 1.6;
     min-height: 100vh;
+    overflow-x: hidden;
+    max-width: 100%;
 
     /* Degradado continuo en toda la landing page inspirado en FondoJugador3.jpg */
     background-color: var(--azul-oscuro);
@@ -79,8 +83,9 @@ body {
     background-size: cover;
 }
 
-h1, h2, h3, .brand {
-    font-family: 'DesignerLocal', sans-serif;
+h1, h2, h3, h4, .brand {
+    font-family: 'DesignerLocal', sans-serif !important;
+    color: var(--text-main) !important;
     letter-spacing: 0.8px;
     -webkit-text-stroke: 0;
     text-shadow: none;
@@ -103,7 +108,7 @@ b {
 }
 
 .container {
-    max-width: 1120px;
+    max-width: 1120px !important;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -113,7 +118,7 @@ b {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(14, 19, 48, 0.68);
+    background: rgba(14, 19, 48, 0.72);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
 }
@@ -123,12 +128,30 @@ b {
     justify-content: space-between;
     align-items: center;
     height: 70px;
+    width: 100%;
+}
+
+.brand-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.brand-icon-img {
+    width: auto;
+    height: auto;
+    max-height: 42px;
+    max-width: 90px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
 }
 
 .brand {
     font-size: 1.35rem;
     font-weight: 800;
-    color: var(--text-main);
+    color: var(--text-main) !important;
     text-decoration: none;
 }
 
@@ -163,6 +186,40 @@ b {
     color: #fff !important;
 }
 
+/* LOGO SUPERIOR RESPONSIVO */
+.top-logo-banner {
+    padding: 32px 0 12px;
+    background: transparent;
+}
+
+.top-logo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-logo-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+}
+
+.top-logo-link:hover {
+    transform: scale(1.03);
+}
+
+.top-logo-img {
+    width: auto;
+    max-width: min(720px, 90vw);
+    max-height: 240px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 10px 22px rgba(10, 14, 36, 0.38));
+}
+
 /* HERO */
 .hero {
     padding: 80px 0 90px;
@@ -177,7 +234,7 @@ b {
 
 .badge {
     display: inline-block;
-    background: rgba(12, 18, 42, 0.55);
+    background: rgba(12, 18, 42, 0.6);
     color: #dcfce7;
     padding: 6px 14px;
     border-radius: 999px;
@@ -270,7 +327,7 @@ b {
     display: block;
 }
 
-/* SECCIONES GENERALES (transparentes para dejar ver el degradado continuo) */
+/* SECCIONES GENERALES */
 .section {
     padding: 80px 0;
     background: transparent;
@@ -292,22 +349,28 @@ b {
 }
 
 .section-header p {
-    color: var(--text-muted);
+    color: var(--text-muted) !important;
+    font-size: 1.05rem;
 }
 
 .card {
-    background: var(--bg-card);
+    background: var(--bg-card) !important;
+    color: var(--text-main) !important;
     backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
+    border: 1px solid var(--border) !important;
     border-radius: 14px;
-    padding: 26px;
+    padding: 24px;
     transition: transform 0.2s, border-color 0.2s, background 0.2s;
 }
 
 .card:hover {
     transform: translateY(-4px);
-    background: var(--bg-card-hover);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: var(--bg-card-hover) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.card p {
+    color: var(--text-muted) !important;
 }
 
 /* STEPS GRID */
@@ -332,7 +395,6 @@ b {
 }
 
 .step-card p {
-    color: var(--text-muted);
     font-size: 0.95rem;
 }
 
@@ -351,6 +413,7 @@ b {
 
 .hud-info h3 {
     margin-bottom: 16px;
+    font-size: 1.35rem;
 }
 
 .hud-info ul {
@@ -359,6 +422,114 @@ b {
     flex-direction: column;
     gap: 12px;
     color: var(--text-muted);
+}
+
+/* CARRUSEL DE CARTAS (TAMAÑO CÓMODO Y PAREJO) */
+.cartas-bloque {
+    margin-bottom: 56px;
+}
+
+.cartas-bloque:last-child {
+    margin-bottom: 0;
+}
+
+.cartas-subtitulo {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.cartas-slide-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    gap: 18px !important;
+    padding: 8px 54px !important;
+    width: 100% !important;
+}
+
+/* Tamaño fijo según 4 cartas por fila (Movimiento y Figuras 5) */
+#carouselMovimiento .carta-item,
+#carouselFiguras5 .carta-item {
+    flex: 0 0 calc((100% - 54px) / 4) !important;
+    width: calc((100% - 54px) / 4) !important;
+    max-width: calc((100% - 54px) / 4) !important;
+    min-width: 0 !important;
+}
+
+/* Tamaño fijo según 3 cartas por fila (Figuras 4) */
+#carouselFiguras4 .carta-item {
+    flex: 0 0 calc((100% - 36px) / 3) !important;
+    width: calc((100% - 36px) / 3) !important;
+    max-width: calc((100% - 36px) / 3) !important;
+    min-width: 0 !important;
+}
+
+.carta-item {
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .cartas-slide-grid {
+        flex-wrap: wrap !important;
+        padding: 6px 40px !important;
+    }
+
+    #carouselMovimiento .carta-item,
+    #carouselFiguras4 .carta-item,
+    #carouselFiguras5 .carta-item {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+
+.carta-frame {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* probá 3 / 4 si tus cartas son verticales o 1 / 1 si son cuadradas */
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(14, 19, 48, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.carta-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.carta-label {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-main) !important;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 44px;
+    opacity: 0.9;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1) brightness(1.5);
 }
 
 /* PERSONAJES */
@@ -404,62 +575,9 @@ b {
 }
 
 .char-card p {
-    color: var(--text-muted);
     font-size: 0.94rem;
 }
 
-/* LOGO SUPERIOR RESPONSIVO*/
-.top-logo-banner {
-    padding: 32px 0 12px;
-    background: transparent;
-}
-
-.top-logo-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.top-logo-link {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    transition: transform 0.25s ease;
-}
-
-.top-logo-link:hover {
-    transform: scale(1.03);
-}
-
-.top-logo-img {
-    width: auto;
-    max-width: min(720px, 90vw);
-    max-height: 240px;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    filter: drop-shadow(0 10px 22px rgba(10, 14, 36, 0.38));
-}
-
-/* Ajustes en celulares */
-@media (max-width: 768px) {
-    .top-logo-banner {
-        padding: 24px 0 8px;
-    }
-
-    .top-logo-img {
-        max-width: min(540px, 88vw);
-        max-height: 176px;
-    }
-}
-
-@media (max-width: 400px) {
-    .top-logo-img {
-        max-width: min(440px, 90vw);
-        max-height: 148px;
-    }
-}
 /* MDA TABS */
 .mda-tabs {
     display: flex;
@@ -478,7 +596,6 @@ b {
     border-radius: 10px;
     cursor: pointer;
     font-weight: 700;
-    font-family: inherit;
     transition: all 0.2s;
 }
 
@@ -546,10 +663,6 @@ b {
     margin: 6px 0 10px;
 }
 
-.timeline-content p {
-    color: var(--text-muted);
-}
-
 code {
     background: rgba(255, 255, 255, 0.12);
     padding: 2px 6px;
@@ -566,12 +679,41 @@ code {
 
 .tech-box h4 {
     margin-bottom: 8px;
-    color: #f8fafc;
 }
 
 .tech-box p {
-    color: var(--text-muted);
     font-size: 0.92rem;
+}
+
+/* ICONOS FONT AWESOME */
+a .fa-solid,
+a .fa-regular,
+a .fa-brands,
+button .fa-solid {
+    margin-right: 6px;
+}
+
+h1 i,
+h2 i,
+h3 i,
+h4 i,
+.fa-solid,
+.fa-regular,
+.fa-brands {
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+.fa-solid {
+    font-weight: 900 !important;
+}
+
+.fa-regular {
+    font-weight: 400 !important;
+}
+
+.fa-brands {
+    font-family: "Font Awesome 6 Brands" !important;
+    font-weight: 400 !important;
 }
 
 /* FOOTER */
@@ -593,6 +735,7 @@ code {
 .footer p {
     color: var(--text-muted);
     font-size: 0.92rem;
+    margin: 0;
 }
 
 .footer-links {
@@ -610,13 +753,6 @@ code {
 }
 
 /* RESPONSIVE */
-/* Evitar scroll horizontal accidental en móviles */
-html, body {
-    overflow-x: hidden;
-    max-width: 100%;
-}
-
-/* Botón hamburguesa oculto en escritorio */
 .menu-toggle {
     display: none;
     background: var(--bg-card);
@@ -631,7 +767,6 @@ html, body {
     justify-content: center;
 }
 
-/* Tablets y pantallas medianas */
 @media (max-width: 900px) {
     .hero-grid,
     .hud-showcase {
@@ -650,18 +785,20 @@ html, body {
     .hud-showcase {
         padding: 24px;
     }
+
+    .carta-item {
+        flex: 0 0 calc((100% - 22px) / 2);
+        max-width: calc((100% - 22px) / 2);
+    }
 }
 
-/* Celulares */
 @media (max-width: 768px) {
-    /* En móviles es mejor scroll en vez de fixed para evitar glitches del degradado */
-    
     body {
         background-attachment: scroll;
     }
 
     .container {
-        padding: 0 18px;
+        padding: 0 18px !important;
     }
 
     .menu-toggle {
@@ -699,109 +836,15 @@ html, body {
         text-align: center;
     }
 
-    .section {
-        padding: 56px 0;
+    .top-logo-banner {
+        padding: 24px 0 8px;
     }
 
-    .section-header {
-        margin-bottom: 32px;
+    .top-logo-img {
+        max-width: min(540px, 88vw);
+        max-height: 176px;
     }
 
-    .section-header h2 {
-        font-size: 1.65rem;
-    }
-
-    .hero h1 {
-        font-size: 1.85rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-        width: 100%;
-        text-align: center;
-    }
-
-    .fichas-decor {
-        justify-content: flex-start;
-        margin-top: 24px;
-    }
-
-    .card {
-        padding: 20px;
-    }
-
-    .mda-tabs {
-        gap: 8px;
-    }
-
-    .tab-btn {
-        flex: 1 1 auto;
-        text-align: center;
-        padding: 9px 14px;
-        font-size: 0.9rem;
-    }
-
-    .timeline {
-        padding-left: 22px;
-        gap: 18px;
-    }
-
-    .timeline-dot {
-        left: -29px;
-        width: 12px;
-        height: 12px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .footer-links {
-        flex-wrap: wrap;
-        gap: 14px;
-    }
-}
-
-/* Pantallas muy angostas */
-@media (max-width: 400px) {
-    .brand {
-        font-size: 1.15rem;
-    }
-
-    .hero h1 {
-        font-size: 1.6rem;
-    }
-}
-
-/* GRUPO MARCA + IMAGEN PNG RESPONSIVA */
-.brand-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-}
-
-.brand-icon-img {
-    width: auto;
-    height: auto;
-    max-height: 42px;
-    max-width: 90px;
-    object-fit: contain;
-    display: block;
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
-}
-
-/* Ajuste responsivo en pantallas chicas */
-@media (max-width: 768px) {
     .brand-group {
         gap: 8px;
     }
@@ -810,48 +853,4 @@ html, body {
         max-height: 34px;
         max-width: 72px;
     }
-}
-
-@media (max-width: 400px) {
-    .brand-icon-img {
-        max-height: 28px;
-        max-width: 58px;
-    }
-}
-
-/* Separación cuando va al lado de texto */
-a .fa-solid,
-a .fa-regular,
-a .fa-brands,
-button .fa-solid {
-    margin-right: 6px;
-}
-
-/* Ejemplo de tamaño y color personalizado */
-.icono-seccion {
-    font-size: 1.5rem;
-    color: #86efac;
-}
-
-h1 i,
-h2 i,
-h3 i,
-h4 i,
-.fa-solid,
-.fa-regular,
-.fa-brands {
-    font-family: "Font Awesome 6 Free" !important;
-}
-
-.fa-solid {
-    font-weight: 900 !important;
-}
-
-.fa-regular {
-    font-weight: 400 !important;
-}
-
-.fa-brands {
-    font-family: "Font Awesome 6 Brands" !important;
-    font-weight: 400 !important;
 }
